@@ -26,14 +26,16 @@ export default class Matrix {
     // Li -> Li * factor
     scaleRow(i: number, factor: number) {
         i -= 1;
-        this.vals[i] = this.vals[i].map(x => x * factor);
+        this.vals[i] = this.vals[i].map((x) => x * factor);
     }
 
     // Li1 -> Li1 + Li2 * factor
     addRows(i1: number, i2: number, factor: number) {
         i1 -= 1;
         i2 -= 1;
-        this.vals[i1] = this.vals[i1].map((x, i) => x + this.vals[i2][i] * factor);
+        this.vals[i1] = this.vals[i1].map((x, i) =>
+            x + this.vals[i2][i] * factor
+        );
     }
 
     get(i: number, j: number): number {
@@ -82,4 +84,4 @@ export default class Matrix {
             }
         }
     }
-};
+}

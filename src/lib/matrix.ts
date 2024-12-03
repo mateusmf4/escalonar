@@ -12,6 +12,23 @@ export default class Matrix {
         this.n = nums[0].length;
     }
 
+    static fromFlatNums(m: number, n: number, nums: number[]) {
+        let mat = new Matrix([[1]]);
+        mat.m = m;
+        mat.n = n;
+        let rows = [];
+        let ii = 0;
+        for (let i = 0; i < m; ++i) {
+            let row = [];
+            for (let j = 0; j < n; ++j) {
+                row.push(nums[ii++]);
+            }
+            rows.push(row);
+        }
+        mat.vals = rows;
+        return mat;
+    }
+
     clone(): Matrix {
         return new Matrix(structuredClone(this.vals));
     }
@@ -40,6 +57,13 @@ export default class Matrix {
 
     get(i: number, j: number): number {
         return this.vals[i - 1][j - 1];
+    }
+
+    getFlat(flatIndex: number): number {
+        let i = Math.floor(flatIndex / this.n);
+        let j = flatIndex % this.n;
+        console.log(i, j, flatIndex);
+        return this.vals[i][j];
     }
 
     firstNonZero(i: number): number | null {

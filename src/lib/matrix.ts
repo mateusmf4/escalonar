@@ -53,15 +53,15 @@ export default class Matrix {
 
     escalonar() {
         for (let i = 1; i <= this.m; i++) {
-            let j = this.firstNonZero(i);
+            const j = this.firstNonZero(i);
             if (j === null) continue;
-            let a = this.get(i, j);
+            const a = this.get(i, j);
             if (a !== 1) {
                 this.scaleRow(i, 1 / a);
             }
             for (let i2 = 1; i2 <= this.m; i2++) {
                 if (i2 !== i) {
-                    let b = this.get(i2, j);
+                    const b = this.get(i2, j);
                     if (nonZero(b)) {
                         this.addRows(i2, i, -b);
                     }
@@ -73,7 +73,7 @@ export default class Matrix {
             let maxJ = 0;
             let maxI = 0;
             for (let i = 1; i <= end; i++) {
-                let j = this.firstNonZero(i) ?? (this.n + 1);
+                const j = this.firstNonZero(i) ?? (this.n + 1);
                 if (j > maxJ) {
                     maxJ = j;
                     maxI = i;

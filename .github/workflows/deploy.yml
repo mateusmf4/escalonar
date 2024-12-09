@@ -20,7 +20,7 @@ jobs:
         run: deno install
 
       - name: Build
-        run: deno run build
+        run: deno run build --base escalonar
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3

@@ -62,7 +62,6 @@ export default class Matrix {
     getFlat(flatIndex: number): number {
         let i = Math.floor(flatIndex / this.n);
         let j = flatIndex % this.n;
-        console.log(i, j, flatIndex);
         return this.vals[i][j];
     }
 
